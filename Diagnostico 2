@@ -1,0 +1,31 @@
+// Diagnostico 2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main ()
+
+{
+	int n,i,suma,con;
+
+		cout<<"ingrese la cantidad: ";
+		cin>>n;
+
+		suma=0;
+		con=1;
+		for(i=1;i<=n;i++)
+		{
+			suma=suma+con;
+			con=con+2;
+		}
+		
+		cout<<"la sumatoria es: ";
+		cout<<suma;
+		getch();
+
+}
+
