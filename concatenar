@@ -1,0 +1,46 @@
+// ejercicio.cpp : main project file.
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+int concatenar(int x, int y);
+
+void main()
+{
+    int a,b,concatenado;
+    cout<<"Ingresar a: ";
+    cin>>a;
+    cout<<"Ingresar b: ";
+    cin>>b;
+    concatenado=concatenar(a,b);
+    cout<<"El valor concatenado es: "<<concatenado<<"\n";
+    getch();
+}
+
+int concatenar(int x, int y)
+{
+    int mayor, menor,c=0,aux,con;
+    if (x>y)
+    {
+        mayor=x;
+        menor=y;
+    }
+    else
+    {
+        menor=x;
+        mayor=y;
+    }
+    aux=mayor;
+    while (aux!=0)
+    {
+        aux=aux/10;
+        c++;
+    }
+
+    con=menor*pow(10.0,c)+mayor;
+    return con;
+}
