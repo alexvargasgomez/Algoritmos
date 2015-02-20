@@ -1,0 +1,124 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+int invertir(int n)
+{
+	int a=0,b;
+	while(n>0)
+	{
+		b=n%10;
+		a=a*10+b;
+		n=n/10;
+	}
+	return(a);
+}
+
+int elipares(int n)
+{
+	int a=0,b;
+	while(n>0)
+	{
+		b=n%10;
+		if(b%2!=0)
+		{
+		a=a*10+b;	
+		}
+		n=n/10;
+	}
+	return(invertir(a));
+}
+
+int sumardigimp(int n)
+{
+	int a=0,b;
+	while(n>0)
+	{
+		b=n%10;
+		if(b%2!=0)
+		{
+			a=a+b;
+		}
+		n=n/10;
+	}
+	return(a);
+}
+
+int sumarDig(int n)
+{
+	int a=0,b;
+	while(n>0)
+	{
+		b=n%10;
+		a=a+b;
+		n=n/10;
+		
+	}
+	return(a);
+}
+
+int contarDig(int n)
+{
+	int c=0;
+	while(n>0)
+	{
+		n=n/10;
+		c++;
+	}
+	return(c);
+}
+void main()
+{
+	int num,r,opcion;
+	cout<<"inttroducir un numero natural entero: ";
+	cin>>num;
+	do
+	{
+		cout<< " ------------------------------MENU-----------------------\n\n ";
+	cout<< "1) contar digitos.\n\n ";
+	cout<< "2) Sumar digitos. \n\n ";
+	cout<< "3) Sumar digitos impares.\n\n ";
+	cout<< "4) Invertir digitos. \n\n ";
+	cout<< "5) Eliminar pares.\n\n ";
+	cout<< "0) salir.\n\n ";
+	cout<<"Ingrese la opcion deseada:\n\n ";
+	cin>>opcion;
+	switch(opcion)
+		{
+		case 1:
+		r=contarDig(num);
+		cout<<"La cantidad de digitos es: ";
+		cout<<r<<endl;
+				break;
+
+		case 2:
+		r=sumarDig(num);
+		cout<<"La sumatoria de digitos es: ";
+		cout<<r<<endl;
+			break;
+
+		case 3:
+		r=sumardigimp(num);
+		cout<<"la sumatoria de digitos impares es: ";
+		cout<<r<<endl;
+			break;
+
+		case 4:
+		r=invertir(num);
+		cout<<"El numero invertirdo es: ";
+		cout<<r<<endl;
+			break;
+
+		case 5:
+		r=elipares(num);
+		cout<<"El numero sin pares es: ";
+		cout<<r<<endl;
+			break;
+		}
+	}
+	while(opcion!=0);
+}
+
+
+sumar ascendente el numero deseado tomando como referencia el primer numero 
