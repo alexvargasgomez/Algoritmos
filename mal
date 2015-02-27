@@ -1,0 +1,47 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+int invertir(int n)
+{
+	int a=0,b;
+	while(n>0)
+	{
+		b=n%10;
+		a=a*10+b;
+		n=n/10;
+	}
+	return(a);
+}
+
+int sumaref (int n)
+{
+	int a,b,c,d,suma;
+	a=invertir(n);
+	while(a>0)
+	{
+		b=a&10;
+		a=a/10;
+		c=a%10;
+		d=a/10;
+		if(b>d)
+		{
+			suma=b+d;
+		}
+	}
+
+	return(suma);
+}
+
+
+void main()
+{
+	int num,r;
+	cout<<"inttroducir un numero natural entero: ";
+	cin>>num;
+	r=sumaref(num);
+	cout<<"la suma de numeros consecutivos es: ";
+	cout<<r;
+	getch();
+}
