@@ -1,0 +1,123 @@
+#include "iostream"
+#include "conio.h"
+
+using namespace std;
+
+bool verprimo(int n)
+{
+	bool k=true;
+	int i;
+
+	for(i=2;i<n;i++)
+	{
+		if(n%i==0)
+		{
+			k=false;
+			i=n;
+		}
+	}
+	return(k);
+}
+
+void mostrarsecuencia(int n)
+{
+	int s=1,i;
+	
+	for(i=1;i<=n;i++)
+	{
+		cout<<s<<", ";
+		s=s+2;
+	}
+}
+
+void invertirsecuencia(int n)
+{
+	int s=n*2-1,i;
+	
+	for(i=1;i<=n;i++)
+	{
+		cout<<s<<", ";
+		s=s+2;
+	}
+}
+
+void mostrar_par_impar(int n)
+{
+	int s=2,i;
+
+	for(i=1;i<=n;i++)
+	{
+		cout<<s<<", ";
+
+		if(s%2==0)
+		{
+			s=s-1;
+		}
+		else
+		{
+			s=s+3;
+		}
+	}
+}
+
+void mostrarAB(int n)
+{
+	int s=2,i;
+
+	for(i=1;i<=n;i++)
+	{
+		if(s%2==0)
+		{
+			cout<<"a, ";
+			s=s-1;
+		}
+		else
+		{
+			cout<<"b, ";
+			s=s+3;
+		}
+	}
+}
+
+void mostrarABC(int n)
+{
+	int bandera=1,i;
+
+	for (i=1;i<=n;i++)
+	{
+		if (bandera==1)
+		{
+			cout<<"a, ";
+			bandera=2;
+		}
+		else
+		{
+			if(bandera==2)
+			{
+				cout<<"b, ";
+				bandera=3;
+			}
+			else
+			{
+				cout<<"c, ";
+				bandera=1;
+			}
+		}
+	}
+}
+
+void mostrarAAABBB(int n)
+{}
+
+void main()
+{
+	int num,r;
+
+	cout<<"Introducir el numero deseado: ";
+	cin>>num;
+	cout<<"La secuencia es: ";
+	mostrarABC(num);
+
+	getch();
+}
+FALTA COMPLETAR MOSTRARaaabbb
