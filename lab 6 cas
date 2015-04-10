@@ -1,0 +1,180 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+#define FIL 10
+#define COL 10
+
+void cargar(int mat[FIL][COL], int n, int m)
+{
+	int i,j;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			cout<<"Introducir dato para la matriz["<<i<<","<<j<<"] : ";
+			cin>>mat[i][j];
+		}
+	}
+}
+
+void mostrarvector(int vec[],int n)
+{
+int i;
+cout<<"\nEl vecor es: ";
+for(i=0;i<n;i++)
+{
+cout<<vec[i]<<", ";
+}
+}
+
+
+void mostrar(int mat[FIL][COL], int n, int m)
+{
+	int i,j;
+	cout<<"\nLa matriz es ---->> : \n";
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			cout<<mat[i][j];
+		}
+		cout<<endl;
+	}
+}
+
+int sumarTodo(int mat[FIL][COL], int n, int m)
+{
+	int i,j,s=0;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			s=s+mat[i][j];
+		}		
+	}
+return(s);
+}
+
+int  sumarTrianguloSuperior(int mat[FIL][COL], int n, int m)
+{
+	int i,j,s=0;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			if(j>i)
+			s=s+mat[i][j];
+		}		
+	}
+return(s);
+}
+
+void sumarPorFila(int mat[FIL][COL], int n, int m)
+{
+int i,j,s=0,t=0;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			s=s+mat[i][j];
+		}		
+	cout<<"\n La suma de la fila"<<i<<", es: "<<s;
+	t=t+s;
+	}
+	cout<<"\n La suma total es: "<<t;
+
+}
+
+void sumarPorFilaAlmacenarVector(int mat[FIL][COL], int n, int m, int vec[])
+{
+int i,j,s=0,t=0;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			s=s+mat[i][j];
+		}		
+	cout<<"\n La suma de la fila"<<i<<", es: "<<s;
+	vec[i]=s;
+	s=0;
+	}
+}
+
+void ordenarVector(int vec[], int n)
+{
+	int i,j,aux;
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if(vec[i]>vec[j])
+			{
+				aux=vec[i];
+				vec[i]=vec[j];
+				vec[j]=aux;
+			}
+		}
+	}
+}
+
+void ordenarFilasMatriz(int mat[FIL][COL], int n, int m)
+{
+int i,j,nVec=0,vec[COL];
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			vec[nVec++]=mat[i][j];
+		}
+		ordenarVector(vec,nVec);
+		nVec=0;
+		for(j=0;j<m;j++)
+		{
+			mat[i][j]=vec[nVec++];
+		}
+}
+}
+
+	void verificarNegativos(int n
+
+void main()
+{
+	int matriz[FIL][COL],nrosFil,nrosCol,opcion=0,vec[FIL];
+	cout<<"Numero de Filas: ";
+	cin>>nrosFil;
+	cout<<"Numero de Columnas: ";
+	cin>>nrosCol;
+	do
+	{
+		cout<<endl<<endl<<"           <<***         MENU        ***>>";
+		cout<<endl<<"1.- Cargar";
+		cout<<endl<<"2.- Mostrar";
+		cout<<endl<<"3.- Sumar todo";
+		cout<<endl<<"4.- Sumar triangulo superior";
+		cout<<endl<<"5.- Sumar por fila";
+		cout<<endl<<"6.- Sumar por fila y almacenar en vector";
+		cout<<endl<<"7.- Ordenar por fila";
+		cout<<endl<<"0.- Salir";
+		cout<<endl<<"Seleccionar opcion: ";
+		cin>>opcion;
+		switch(opcion)
+		{
+		case 1 : cargar(matriz,nrosFil,nrosCol);
+			break;
+		case 2 : mostrar(matriz,nrosFil,nrosCol);
+			break;
+		case 3 : cout<<endl<<"La suma de toda la matriz es: >>"<<sumarTodo(matriz,nrosFil,nrosCol);
+			break;
+		case 4 : cout<<endl<<"La suma de triangular superior es: >>"<<sumarTrianguloSuperior(matriz,nrosFil,nrosCol);
+			break;
+		case 5 :sumarPorFila(matriz,nrosFil,nrosCol);
+			break;
+		case 6 :sumarPorFilaAlmacenarVector(matriz,nrosFil,nrosCol,vec);
+			mostrarvector(vec,nrosFil);
+			break;
+		case 7 : ordenarFilasMatriz(matriz,nrosFil,nrosCol);
+			break;
+		}
+	}while(opcion!=0);
+}
